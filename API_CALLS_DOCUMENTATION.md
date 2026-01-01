@@ -39,7 +39,8 @@ These are API endpoints defined within the Next.js application under `/src/pages
     uploadedName: string,
     user: string,
     fileName: string,
-    timeStamp: string
+    timeStamp: string,
+    submissionID: string
   }
   ```
 - **External Calls**: 
@@ -291,7 +292,7 @@ The application uses various AWS services via the AWS SDK.
 
 ### AWS S3 (Simple Storage Service)
 
-**Configuration**: Uses `aws-sdk` v2
+**Configuration**: Uses `aws-sdk` v2 (Note: the application uses mixed SDK versions - aws-sdk v2 for S3, @aws-sdk/client-dynamodb v3 for DynamoDB)
 **Region**: `process.env.AWS_REGION_LOCAL`
 **Credentials**: `AWS_ACCESS_KEY_LOCAL`, `AWS_SECRET_KEY_LOCAL`
 
@@ -447,9 +448,8 @@ Admin Browser
 - **External Services**: 1 (Matchmaking Server with 3 endpoints)
 - **AWS Services Used**: 2 (S3, DynamoDB)
 - **DynamoDB Tables**: 5
-- **Total DynamoDB Operations**: 15+ (counting unique operation types)
+- **DynamoDB Operation Types**: 5 (GetItem, PutItem, UpdateItem, Query, Scan)
 
 ---
 
-*Last Updated: 2026-01-01*
 *This documentation is based on the repository state at the time of generation.*
